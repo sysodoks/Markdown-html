@@ -3,7 +3,6 @@ import re
 from pathlib import Path
 
 def generate_index(input_dirs, output_file="index.html"):
-    """生成带目录导航的索引页（数字排序版）"""
     html = f'''<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -235,7 +234,6 @@ def process_directory(input_dir, output_dir):
                 shutil.copy2(src, dest)
                 print(f"Copied: {src} -> {dest}")
 
-# HTML模板需要添加基本样式（可选）
 HTML_TEMPLATE = """<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
