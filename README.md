@@ -35,7 +35,7 @@ python md2html.py -i <输入目录> [-o <输出目录>]
 ### 参数说明
 
 * `-i/--input`：必填，指定包含Markdown文件的输入目录
-* `-o/--output`：可选，指定输出目录（默认为`dist`）
+* `-o/--output`：可选，指定输出目录（默认为`dist`,多个文件夹请指定输出文件夹）
 
 ### 使用示例
 
@@ -47,7 +47,8 @@ bash
 # 基本用法
 python md2html.py -i ./docs
 # 指定输出目录
-python md2html.py -i ./my_notes -o ./output
+Linux: python md2html.py -i ./my_notes -o ./output
+Windows：python md2html.py -i 路径\my_notes -o 路径\output
 ```
 
 ### 转换规则
@@ -74,12 +75,14 @@ bash
 ```
 
 ```
-python generate_index.py [-o <输出文件>]
+python generate_index.py
+输入需要导航的文件夹
+按q退出
 ```
 
 ### 参数说明
 
-* 自动检测`dist`和`dist2`目录
+* 输入需要导航的文件夹，按q退出
 * 默认输出到`index.html`
 
 ### 使用示例
@@ -89,10 +92,8 @@ bash
 ```
 
 ```
-# 基本用法（自动检测dist目录）
+# 基本用法
 python generate_index.py
-# 自定义输出文件
-python generate_index.py -o ./docs_index.html
 ```
 
 ### 四、完整工作流程
@@ -104,7 +105,7 @@ bash
 ```
 
 ```
-python md2html.py -i ./source_docs
+python md2html.py -i source_docs -o results_docs
 ```
 
 1. ​**生成导航页**
@@ -115,6 +116,8 @@ bash
 
 ```
 python generate_index.py
+results_docs
+q
 ```
 
 1. ​**访问结果**
@@ -152,7 +155,7 @@ source_docs/
 ### 转换后
 
 ```
-dist/
+results/
 ├─ 1-指南/
 │  ├─ 1-快速入门.html
 │  └─ images/
