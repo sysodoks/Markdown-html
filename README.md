@@ -1,3 +1,6 @@
+这是一个批量markdown转化html并生成导航页的工具，用于将本地markdown文件转化为html方便翻译。
+
+
 ````
 # Markdown转换工具包使用说明
 ## 工具组成
