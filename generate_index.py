@@ -260,11 +260,19 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </html>
 """
 if __name__ == "__main__":
-    # 自动检测输出目录
-    output_dirs = [d for d in ["dist", "dist2"] if os.path.exists(d)]
+    # 用户输入文件目录
+    output_dirs = []
+    while True:
+        dir_path = input("请输入要处理的目录路径（输入q退出）：").strip()
+        if dir_path.lower() == 'q':
+            break
+        if os.path.exists(dir_path):
+            output_dirs.append(dir_path)
+        else:
+            print(f"目录不存在：{dir_path}")
     
     if not output_dirs:
-        print("错误：未找到任何输出目录")
+        print("未输入任何有效目录，程序退出")
         exit(1)
         
     generate_index(output_dirs, "index.html")
